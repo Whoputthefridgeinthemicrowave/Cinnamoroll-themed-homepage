@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  <!-- Tailwind CSS for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Use the Inter font family */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #111827; /* Fallback background */
+    }
+
+    /* Video background styling as requested */
+    .video-background {
+      position: fixed; /* Use fixed to ensure it stays in background */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2; /* Place it behind all content */
+      opacity: 0;
+      animation: fadeIn 1s 0.5s ease-in forwards;
+    }
+    
+    /* Overlay to darken the video and improve text readability */
+    .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+
+    /* Fade-in animation for the video */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Rise-up animation for content */
+    @keyframes riseUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Apply animation to elements with a staggered delay */
+    .animated-rise {
+        opacity: 0; /* Start hidden */
+        animation: riseUp 0.6s ease-out forwards;
+    }
+
+    /* Stagger the animation delays for a smoother effect */
+    .delay-1 { animation-delay: 0.8s; }
+    .delay-2 { animation-delay: 0.9s; }
+    .delay-3 { animation-delay: 1.0s; }
+    .delay-4 { animation-delay: 1.1s; }
+    .delay-5 { animation-delay: 1.2s; }
+    .delay-6 { animation-delay: 1.3s; }
+
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- Video Background Element -->
+  <div class="video-overlay"></div>
+  <video autoplay muted loop playsinline class="video-background">
+    <!-- Using a placeholder video. You can replace this src with your own "vid.mp4" if it's hosted online or in the same folder. -->
+    <source src="https://videos.pexels.com/video-files/4784347/4784347-hd_1920_1080_25fps.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Main Content Container -->
+  <!-- This container centers the content vertically and pushes it to the left third of the screen on medium devices and up -->
+  <main class="min-h-screen w-full flex items-center p-4 sm:p-8">
+    <div class="w-full max-w-md md:max-w-sm">
+
+      <!-- Google Search Form -->
+      <form action="https://www.google.com/search" method="get" target="_blank" class="relative w-full mb-6 animated-rise delay-1">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+          <!-- Google Icon SVG -->
+          <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </div>
+        <input 
+          type="text" 
+          name="q" 
+          placeholder="Search with Google" 
+          class="w-full bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg py-3 pl-11 pr-4 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+          autocomplete="off"
+        />
+      </form>
+      
+      <!-- Pinned Websites Grid -->
+      <div class="grid grid-cols-1 gap-4">
+        
+        <!-- Gemini Link -->
+        <a href="https://gemini.google.com/" target="_blank" class="flex items-center p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg hover:bg-gray-800/70 hover:border-blue-500 transition-all duration-300 animated-rise delay-2">
+          <!-- Gemini Icon SVG -->
+          <svg class="w-6 h-6 mr-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 2.5L5 13.5L9.5 20.5L18 12L9.5 2.5Z" fill="#6A89F8"></path><path d="M9.5 2.5L14 12L9.5 20.5L1 12L9.5 2.5Z" fill="#A5C6FF"></path></svg>
+          <span class="font-medium">Gemini</span>
+        </a>
+
+        <!-- ChatGPT Link -->
+        <a href="https://chat.openai.com/" target="_blank" class="flex items-center p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg hover:bg-gray-800/70 hover:border-green-500 transition-all duration-300 animated-rise delay-3">
+          <!-- ChatGPT Icon SVG -->
+          <svg class="w-6 h-6 mr-4" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.5323 20.2547C37.5323 29.8384 29.3333 37.5094 19.502 37.5094C16.2731 37.5094 13.2546 36.7561 10.6571 35.433C10.0275 35.0886 9.32306 35.2132 8.87309 35.6631L6.10143 38.4348C5.55622 38.9801 4.71745 38.8555 4.3152 38.2507L2.43324 35.5369C1.94665 34.8165 2.13575 33.8266 2.82468 33.3152C5.35712 31.3323 7.3152 28.9485 8.5204 26.26C3.96193 22.8407 3.47312 16.5164 6.84813 12.381C10.2231 8.24558 16.5723 7.49226 20.7323 10.1547C22.2238 9.52514 23.8308 9.17031 25.5223 9.17031C32.2234 9.17031 37.5323 14.156 37.5323 20.2547Z" fill="#74AA9C"></path></svg>
+          <span class="font-medium">ChatGPT</span>
+        </a>
+
+        <!-- YouTube Link -->
+        <a href="https://www.youtube.com/" target="_blank" class="flex items-center p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg hover:bg-gray-800/70 hover:border-red-500 transition-all duration-300 animated-rise delay-4">
+          <!-- YouTube Icon SVG -->
+          <svg class="w-6 h-6 mr-4" viewBox="0 0 24 24" fill="#FF0000" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span class="font-medium">YouTube</span>
+        </a>
+        
+        <!-- Discord Link -->
+        <a href="https://discord.com/" target="_blank" class="flex items-center p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg hover:bg-gray-800/70 hover:border-indigo-500 transition-all duration-300 animated-rise delay-5">
+          <!-- Discord Icon SVG -->
+          <svg class="w-6 h-6 mr-4" fill="#5865F2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4464.8258-.6678 1.2675-1.9946-.6082-4.1103-.6082-6.1042 0-.2214-.4417-.4568-.8922-.6678-1.2675a.0741.0741 0 0 0-.0785-.0371 19.7913 19.7913 0 0 0-4.8851 1.5152.069.069 0 0 0-.0321.0253.0741.0741 0 0 0-.0165.0502s-.3492 4.6062-.9763 9.4032c0 .093.0195.1824.0539.2652a.092.092 0 0 0 .0688.0443c.002.0007.004.0014.006.0021.0336.0182.068.0336.1024.0483.0801.0336.1663.0603.2592.0792.069.0147.1394.024.2109.0276.0112.0007.0224.0007.0329-.0007a11.96 11.96 0 0 0 1.2534.2214 10.9163 10.9163 0 0 0 2.1529.2152a10.874 10.874 0 0 0 2.5386.0057 11.0028 11.0028 0 0 0 2.146-.2152 11.96 11.96 0 0 0 1.2534-.2214c.0105.0014.0217.0014.0329.0007.0715-.0037.1419-.0129.2109-.0276.0929-.0189.1791-.0456.2592-.0792.0344-.0147.0688-.0302.1024-.0483.002-.0007.004-.0014.006-.0021a.092.092 0 0 0 .0688-.0443.118.118 0 0 0 .0539-.2652c-.6271-4.797-.9763-9.4032-.9763-9.4032a.0741.0741 0 0 0-.0165-.0502.069.069 0 0 0-.0321-.0253Z"/></svg>
+          <span class="font-medium">Discord</span>
+        </a>
+
+        <!-- Canva Link -->
+        <a href="https://www.canva.com/" target="_blank" class="flex items-center p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-lg hover:bg-gray-800/70 hover:border-cyan-400 transition-all duration-300 animated-rise delay-6">
+           <!-- Canva Icon SVG -->
+          <svg class="w-6 h-6 mr-4" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32.5" cy="32.5" r="32.5" fill="#00C4CC"></circle><path d="M42.41 26.54c0-3.32-2.7-6.02-6.02-6.02s-6.02 2.7-6.02 6.02 2.7 6.02 6.02 6.02 6.02-2.7 6.02-6.02zm4.72 20.3c-.56 1.76-2.12 3.01-4 3.29-3.08.45-6.24-.71-8.3-2.78-2.06-2.06-3.21-4.99-2.78-8.3.28-1.88 1.53-3.44 3.29-4l1.32-.44.75 2.26-.94.31c-.7.24-1.22.8-1.39 1.52-.3 1.25.07 2.58.97 3.47 1.13 1.13 2.89 1.4 4.3.77l2.25-1 .32-.94 2.26.75-1.32 3.96z" fill="url(#canva-gradient)"></path><defs><linearGradient id="canva-gradient" x1="30.39" y1="20.52" x2="47.13" y2="50.13" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"></stop><stop offset="1" stop-color="#E1E1E1"></stop></linearGradient></defs></svg>
+          <span class="font-medium">Canva</span>
+        </a>
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>
